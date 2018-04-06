@@ -1,0 +1,48 @@
+/*  The code will take a user input of seconds and output those seconds across days, hours, minutes, and show the remaining seconds. To do this I'm using the % tool to divide the remainder of the user input all the way down to the second. I made final integers to make it easier to read and used 4 if statements to cover all possible inputs.*/ 
+
+import java.util.Scanner;
+
+class Main {
+  public static void main(String[] args) {
+    
+Scanner sc = new Scanner(System.in);
+
+final int DAY, HOUR, MINUTE;
+int ui, days, hours, minutes, seconds; // ui = user import 
+DAY = 86400; // seconds in day
+HOUR = 3600; // seconds in hour 
+MINUTE = 60; // seconds in minute
+
+System.out.println("How many seconds?");
+ui = sc.nextInt();
+days = (ui/DAY);
+hours = ((ui%DAY)/HOUR);
+minutes = ((ui%DAY%HOUR)/(MINUTE));
+seconds = (ui%DAY%HOUR%MINUTE);
+
+if (ui >= DAY)
+{System.out.printf("%d day(s) \n%d hour(s) \n%d minute(s)\n%d second(s)", days, hours, minutes, seconds);
+}
+if (ui<DAY && ui >= HOUR)
+{System.out.printf("%d hour(s) \n%d minute(s)\n%d second(s)", hours, minutes, seconds);
+}
+if (ui<HOUR && ui > MINUTE)
+{System.out.printf("%d minute(s)\n%d second(s)", minutes, seconds);
+}
+if (ui < MINUTE) 
+{System.out.printf("%d seconds", seconds);
+}
+
+  }
+}
+
+/* sample output 
+
+How many seconds?
+ 103093
+1 day(s) 
+4 hour(s) 
+38 minute(s)
+13 second(s) 
+
+*/
